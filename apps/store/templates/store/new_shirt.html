@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Shirt</title>
+</head>
+<body>
+    <h1>Create a new shirt</h1>
+    <form action="/create_shirt" method="post">
+        {% csrf_token %}
+        <p>
+            <label for="color">Color:</label>
+            <input type="text" name="color">
+        </p>
+        <p>
+            <label for="size">Size:</label>
+            <input type="text" name="size">
+        </p>
+        <p>
+            <label for="fabric">Fabric:</label>
+            <input type="text" name="fabric">
+        </p>                            
+        <input type="submit" value="Create Shirt">
+    </form>
+</body>
+</html>

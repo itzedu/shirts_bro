@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Pages</title>
+</head>
+<body>
+    <h1>Welcome {{ current_user.first_name }}</h1>
+    <a href="/logout">Logout</a>
+
+    <h2>These are all your shirts</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Fabric</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for shirt in current_user.all_shirts.all %}
+                <tr>
+                    <td>{{ shirt.color }}</td>
+                    <td>{{ shirt.size }}</td>
+                    <td>{{ shirt.fabric }}</td>
+                    <td>
+                        <a href="/shirts/{{ shirt.id }}">Show</a> |
+                        <a href="">Edit</a> |
+                        <a href="/delete_shirt/{{ shirt.id }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/new_shirt">Create a New Shirt</a>
+</body>
+</html>
